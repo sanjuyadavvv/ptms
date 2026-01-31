@@ -13,7 +13,7 @@ import connect from './config/db.js'
 
 
 const app=express();
-app.use(cors())
+
 app.use(express.json())
 dotenv.config()
 
@@ -23,13 +23,21 @@ console.log(process.env.MONGOURL)
 connect()
 
 
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  res.setHeader("Cross-Origin-Embedder-Policy", "unsafe-none");
+  next();
+});
+
 
 
 
 app.use(
   cors({
     origin:'http://localhost:5173',
-    credentials:true
+    credentials:true,
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   })
 )
 
