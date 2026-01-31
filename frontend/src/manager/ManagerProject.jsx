@@ -49,6 +49,7 @@ const ManagerProject = () => {
       );
       toast.success('project created ')
       console.log("Project created:", res.data);
+      navigate(-1)
     } catch (error) {
       console.error("Error creating project:", error.response?.data || error);
       toast.error('error creating')

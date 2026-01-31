@@ -126,6 +126,7 @@ import mongoose from "mongoose";
 export const getProjectById = async (req, res) => {
   try {
     const { id } = req.params;
+    
 
     // Validate MongoDB ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -146,11 +147,40 @@ export const getProjectById = async (req, res) => {
   }
 };
 
-export default getProjectById;
 
 
+export const getProjectByUserReq=async(req,res)=>{
 
+  console.log('this is being called ')
+  try{
+     const user_id = req.user._id;
+     console.log('id is ',user_id)
 
+    if (!user_id) {
+      return res.status(400).json({ message: "Manager ID is required" });
+    }
+
+    const project = await Project.find({ manager_id: user_id })
+      .populate("manager_id", "name email")
+    
+
+    // console.log(task);
+    if (project.length === 0) {
+      console.log("no task is assigned yet");
+      return res.json({ message: "no tasks yet" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: " got project   successfully",
+      project,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ message: "error finding project", error });
+  }
+  
+}
 
 
 

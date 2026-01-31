@@ -14,6 +14,7 @@ export const createTask = async (req, res) => {
       task,
     });
   } catch (error) {
+    console.log(error)
     res.status(400).json({
       success: false,
       message: error.message,

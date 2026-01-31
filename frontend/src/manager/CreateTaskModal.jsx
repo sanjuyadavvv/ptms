@@ -28,6 +28,9 @@ const CreateTaskModal = () => {
 
   const submit = async (e) => {
     e.preventDefault();
+
+
+    console.log('data is ',form)
     try {
       setLoading(true);
       await axios.post(
@@ -45,7 +48,8 @@ const CreateTaskModal = () => {
 
   useEffect(() => {
     const fetchEmployees = async () => {
-      const res = await axios.get("http://localhost:3000/api/auth/emp", {
+
+      const res = await axios.get("http://localhost:3000/api/auth/allusers", {
         headers,
       });
       setEmployees(res.data.employees || []);

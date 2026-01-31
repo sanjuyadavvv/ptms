@@ -198,7 +198,8 @@ const Login = () => {
         console.log('checking userRole in frontend',userRole)
         if (userRole === "MANAGER") navigate("/manager");
         else if(userRole==="ADMIN") navigate("/admin")
-        else navigate("/emp");
+        // else navigate("/emp");
+      else navigate('/default')
       })
       .catch(() => {});
   };

@@ -4,11 +4,12 @@ import {
   createProject,
   updateProject,
   deleteProject,
-  getProjects,
   getProjectForManager,
   getProjectById,
-  changeProjectStatus
+  changeProjectStatus,
+  getProjectByUserReq
 } from "../Controller/projectController.js";
+
 import { authMiddleware } from "../middleware/authMiddleware.js";
 
 import { checkPermission } from "../middleware/checkPermission.js";
@@ -17,6 +18,8 @@ const router = express.Router();
 
 //  create project
 router.post("/project/createproject", authMiddleware,checkPermission("CREATE_PROJECT"),createProject);
+router.get("/project/user",authMiddleware,getProjectByUserReq)
+
 
 
 // update project
@@ -30,8 +33,6 @@ router.delete(
   checkPermission("DELETE_PROJECT"),
 deleteProject
 );
-
-
 
 
 

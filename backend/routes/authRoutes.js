@@ -1,7 +1,7 @@
 import express from 'express';
 import { createUserByAdmin ,deleteUser,fetchALLUser,getUser, getUserPermissions, googleLogin} from '../Controller/authController.js';
 
-import {getProjectById,createProject,getProjects, updateProject } from '../Controller/projectController.js';
+import {createProject,getProjects, updateProject,getProjectById } from '../Controller/projectController.js';
 import { createTask,getAllTasks } from '../Controller/taskController.js';
 
 import { fetchEmployees } from '../Controller/authController.js';
@@ -47,7 +47,7 @@ router.get('/getprojects',authMiddleware,checkPermission('VIEW_ALLPROJECT'),getP
 
 
 // get project by projectid
-router.get('/project/:id',getProjectById)
+router.get('/viewproject/:id',getProjectById)
 // router.patch('/update/project/:id',updateProject)
 
 
