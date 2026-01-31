@@ -9,10 +9,11 @@ const CreatePermission = () => {
     e.preventDefault();
     if (!name.trim()) return;
 
+    
     try {
       setLoading(true);
       const res=await axios.post(
-        "http://localhost:3000/api/auth/createpermission",
+        `${baseURL}/api/auth/createpermission`,
         { name },
         {
           headers: {

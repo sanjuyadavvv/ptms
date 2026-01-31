@@ -15,7 +15,7 @@ const fetchAllTask=async()=>{
 
   try {
     
-      const res= await axios.get("http://localhost:3000/api/auth/getalltask",{
+      const res= await axios.get(`${baseURL}/api/auth/getalltask`,{
      headers :{
         Authorization:`Bearer ${localStorage.getItem("token")}`
      }})
@@ -48,7 +48,7 @@ if (!isConfirmed) {
   return; // No dabaya → yahin se function stop
 }
     try {
-      const res=  await axios.delete(`http://localhost:3000/api/auth/deletetask/${id}`,{
+      const res=  await axios.delete(`${baseURL}/api/auth/deletetask/${id}`,{
     headers:{
         Authorization:`Bearer ${localStorage.getItem("token")}`
     }

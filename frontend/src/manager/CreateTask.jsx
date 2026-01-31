@@ -21,7 +21,7 @@
 
 //   const handleSubmit = async () => {
 //     try {
-//       await axios.post("http://localhost:3000/api/auth/createtask", {
+//       await axios.post("${baseURL}/api/auth/createtask", {
 //         ...form,
 //         project_id: projectId,
 //       });
@@ -185,7 +185,7 @@ const CreateTasks = ({projectId}) => {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const res= await axios.post("http://localhost:3000/api/auth/createtask", {
+      const res= await axios.post(`${baseURL}/api/auth/createtask`, {
         project_id: projectId,
         tasks, // send array of tasks
       });

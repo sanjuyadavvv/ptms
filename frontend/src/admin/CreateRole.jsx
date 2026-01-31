@@ -11,7 +11,7 @@ const CreateRole = () => {
     const fetchPermissions = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/auth/allperms",
+          `${baseURL}/api/auth/allperms`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -40,7 +40,7 @@ const CreateRole = () => {
   const handleCreateRole = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/createrole",
+        `${baseURL}/api/auth/createrole`,
         {
           name: roleName,
           default_permissions: selectedPerms,

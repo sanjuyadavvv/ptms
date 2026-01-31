@@ -34,7 +34,7 @@ const CreateTaskModal = () => {
     try {
       setLoading(true);
       await axios.post(
-        "http://localhost:3000/api/auth/createtask",
+        `${baseURL}/api/auth/createtask`,
         { ...form, project_id: id },
         { headers },
       );
@@ -49,7 +49,7 @@ const CreateTaskModal = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
 
-      const res = await axios.get("http://localhost:3000/api/auth/allusers", {
+      const res = await axios.get(`${baseURL}/api/auth/allusers`, {
         headers,
       });
       setEmployees(res.data.employees || []);
@@ -61,7 +61,7 @@ const CreateTaskModal = () => {
     const fetchAllTask = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/auth/getalltask",
+          `${baseURL}/api/auth/getalltask`,
           {
             headers,
           },

@@ -152,7 +152,7 @@ const Login = () => {
   useEffect(() => {
     const fetchRoles = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/getrole");
+        const res = await axios.get(`${baseURL}/api/auth/getrole`);
         setRoles(res.data.roles || []); // expecting { roles: [...] }
       } catch (err) {
         toast.error("Failed to fetch roles,check your internet connection");

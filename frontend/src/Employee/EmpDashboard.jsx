@@ -22,7 +22,7 @@
 //     const fetchTasks = async () => {
 //       try {
 //         const res = await axios.get(
-//           "http://localhost:3000/api/auth/task/user",
+//           "${baseURL}/api/auth/task/user",
 //           { headers },
 //         );
 //         console.log("taska are ", res);
@@ -77,7 +77,7 @@
 //   const fetchPermission=async()=>{
 //     const id=user._id
 // try {
-//   const res=await axios.get(`http://localhost:3000/api/auth/userpermissions/${id}`,{
+//   const res=await axios.get(`${baseURL}/api/auth/userpermissions/${id}`,{
 //     headers
 //   })
 //   // console.log(res.data)
@@ -104,7 +104,7 @@
 //   const handleChangeStatus = async (newStatus) => {
 //     try {
 //       const res = await axios.patch(
-//         `http://localhost:3000/api/auth/task/status/${selectedTask._id}`,
+//         `${baseURL}/api/auth/task/status/${selectedTask._id}`,
 //         { status: newStatus },
 //         { headers },
 //       );
@@ -124,7 +124,7 @@
 //     if (!comment.trim()) return;
 //     try {
 //       const res = await axios.post(
-//         `http://localhost:3000/api/auth/task/addcomment/${selectedTask._id}`,
+//         `${baseURL}/api/auth/task/addcomment/${selectedTask._id}`,
 //         { comment },
 //         { headers },
 //       );
@@ -308,7 +308,7 @@ const EmpDashboard = () => {
     const fetchTasks = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/auth/task/user",
+          `${baseURL}/api/auth/task/user`,
           { headers }
         );
         setTasks(res.data.task || []);
@@ -324,7 +324,7 @@ const EmpDashboard = () => {
     const fetchPermission = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/auth/userpermissions/${user._id}`,
+          `${baseURL}/api/auth/userpermissions/${user._id}`,
           { headers }
         );
         setPermissions(res.data.permissions || []);
@@ -361,7 +361,7 @@ const EmpDashboard = () => {
   const handleChangeStatus = async (newStatus) => {
     try {
       const res = await axios.patch(
-        `http://localhost:3000/api/auth/task/status/${selectedTask._id}`,
+        `${baseURL}/api/auth/task/status/${selectedTask._id}`,
         { status: newStatus },
         { headers }
       );
@@ -385,7 +385,7 @@ const EmpDashboard = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/auth/task/addcomment/${selectedTask._id}`,
+        `${baseURL}/api/auth/task/addcomment/${selectedTask._id}`,
         { comment },
         { headers }
       );

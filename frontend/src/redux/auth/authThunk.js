@@ -6,7 +6,7 @@ export const googleLogin = createAsyncThunk(
   async ({ token, desiredRole }, thunkAPI) => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/googlelogin",
+        `${baseURL}/api/auth/googlelogin`,
         { token, desiredRole }
       );
       

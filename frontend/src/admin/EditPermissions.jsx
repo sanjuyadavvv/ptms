@@ -23,7 +23,7 @@ const EditPermissions = () => {
     const fetchUserPermissions = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/auth/userpermissions/${id}`,
+          `${baseURL}/api/auth/userpermissions/${id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -42,7 +42,7 @@ const EditPermissions = () => {
     const fetchAllPermissions = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/auth/allperms",
+          `${baseURL}/api/auth/allperms`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -68,7 +68,7 @@ const EditPermissions = () => {
 
     try {
       await axios.post(
-        `http://localhost:3000/api/auth/addpermissions/${id}`,
+        `${baseURL}/api/auth/addpermissions/${id}`,
         { permissions: [permissionName] },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -102,7 +102,7 @@ const EditPermissions = () => {
     try {
       console.log(permissionname)
       const res=  await axios.delete(
-        `http://localhost:3000/api/auth/removepermission/${id}/${permissionname}`,
+        `${baseURL}/api/auth/removepermission/${id}/${permissionname}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

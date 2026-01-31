@@ -21,7 +21,7 @@ if (!isConfirmed) {
 
   try {
     const res = await axios.delete(
-      `http://localhost:3000/api/auth/deleterole/${id}`,
+      `${baseURL}/api/auth/deleterole/${id}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -49,7 +49,7 @@ if (!isConfirmed) {
     const fetchRoles = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/getrole");
+        const res = await axios.get("${baseURL}/api/auth/getrole");
         setRoles(res.data.roles || []); // assuming API returns { roles: [...] }
       } catch (error) {
         console.error("Error fetching roles:", error);

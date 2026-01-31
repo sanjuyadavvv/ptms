@@ -16,7 +16,7 @@ export const fetchManagerProjects = createAsyncThunk(
     try {
       const { user, token } = thunkAPI.getState().auth;
       const res = await axios.get(
-        `http://localhost:3000/api/auth/manager/${user._id}`,
+        `${baseURL}/api/auth/manager/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ export const fetchTasksByProject = createAsyncThunk(
   async (projectId, thunkAPI) => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/auth/task/project/${projectId}`
+        `${baseURL}/api/auth/task/project/${projectId}`
       );
       return res.data.tasks;
     } catch (error) {

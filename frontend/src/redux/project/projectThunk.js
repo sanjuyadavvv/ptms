@@ -8,7 +8,7 @@ export const fetchManagerProjects = createAsyncThunk(
       const { user, token } = thunkAPI.getState().auth;
 
       const res = await axios.get(
-        `http://localhost:3000/api/auth/manager/${user._id}`,
+        `${baseURL}/api/auth/manager/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

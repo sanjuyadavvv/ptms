@@ -33,7 +33,7 @@ const UpdateProject = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       const res = await axios.get(
-        "http://localhost:3000/api/auth/allusers",
+        `${baseURL}/api/auth/allusers`,
         { headers }
       );
       setEmployees(res.data.employees || []);
@@ -54,7 +54,7 @@ const UpdateProject = () => {
     const fetchProjects = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/auth/getprojects`,
+          `${baseURL}/api/auth/getprojects`,
           { headers }
         );
       
@@ -96,7 +96,7 @@ const UpdateProject = () => {
   const handleUpdateProject = async () => {
     try {
       const res = await axios.patch(
-        `http://localhost:3000/api/auth/update/project/${selectedProject._id}`,
+        `${baseURL}/api/auth/update/project/${selectedProject._id}`,
         editProject,
         { headers }
       );

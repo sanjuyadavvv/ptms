@@ -23,7 +23,7 @@ const ManagerDashboard = () => {
     const fetchProjects = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/auth/manager/${user._id}`,
+          `${baseURL}/api/auth/manager/${user._id}`,
           { headers }
         );
 
@@ -53,7 +53,7 @@ const ManagerDashboard = () => {
   const fetchTasks = async (projectId) => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/auth/task/project/${projectId}`,
+        `${baseURL}/api/auth/task/project/${projectId}`,
         { headers }
       );
       // console.log(res)
@@ -74,7 +74,7 @@ const ManagerDashboard = () => {
   const handleTaskStatusChange = async (taskId, status) => {
     try {
       await axios.patch(
-        `http://localhost:3000/api/auth/task/status/${taskId}`,
+        `${baseURL}/api/auth/task/status/${taskId}`,
         { status },
         { headers }
       );
@@ -96,7 +96,7 @@ const ManagerDashboard = () => {
     try {
       
       const res = await axios.patch(
-        `http://localhost:3000/api/auth/project/status/${selectedProject._id}`,
+        `${baseURL}/api/auth/project/status/${selectedProject._id}`,
         { status },
         { headers }
       );
@@ -122,7 +122,7 @@ const ManagerDashboard = () => {
 
     try {
       await axios.delete(
-        `http://localhost:3000/api/auth/deletetask/${taskId}`,
+        `${baseURL}/api/auth/deletetask/${taskId}`,
         { headers }
       );
       setTasks((prev) => prev.filter((t) => t._id !== taskId));
@@ -152,7 +152,7 @@ useEffect(()=>{
   const fetchPermission=async()=>{
     const id=user._id
 try {
-  const res=await axios.get(`http://localhost:3000/api/auth/userpermissions/${id}`,{
+  const res=await axios.get(`${baseURL}/api/auth/userpermissions/${id}`,{
     headers
   })
   // console.log(res.data)

@@ -17,7 +17,7 @@ const [projects, setProjects] = useState([]);
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:3000/api/auth/getprojects",
+        `${baseURL}/api/auth/getprojects`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -44,7 +44,7 @@ const [projects, setProjects] = useState([]);
 
     try {
       await axios.delete(
-        `http://localhost:3000/api/auth/project/deleteproject/${id}`,
+        `${baseURL}/api/auth/project/deleteproject/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

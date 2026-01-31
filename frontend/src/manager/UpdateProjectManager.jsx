@@ -27,7 +27,7 @@
 //     const fetchProject = async () => {
 //       try {
 //         const res = await axios.get(
-//           `http://localhost:3000/api/auth/project/${id}`,
+//           `${baseURL}/api/auth/project/${id}`,
 //           { headers }
 //         );
 
@@ -56,7 +56,7 @@
 //     const fetchManagers = async () => {
 //       try {
 //         const res = await axios.get(
-//           "http://localhost:3000/api/auth/allusers",
+//           "${baseURL}/api/auth/allusers",
 //           { headers }
 //         );
 
@@ -86,7 +86,7 @@
 //     console.log(id)
 //     try {
 //       await axios.patch(
-//         `http://localhost:3000/api/auth/update/project/${id}`,
+//         `${baseURL}/api/auth/update/project/${id}`,
 //         projectDetails,
 //         { headers }
 //       );
@@ -225,7 +225,7 @@ const UpdateProjectManager = () => {
         const token = localStorage.getItem("token");
 
         const res = await axios.get(
-          `http://localhost:3000/api/auth/viewproject/${id}`,
+          `${baseURL}/api/auth/viewproject/${id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -260,7 +260,7 @@ const UpdateProjectManager = () => {
         const token = localStorage.getItem("token");
 
         const res = await axios.get(
-          "http://localhost:3000/api/auth/allusers",
+          `${baseURL}/api/auth/allusers`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -294,7 +294,7 @@ const UpdateProjectManager = () => {
       const token = localStorage.getItem("token");
 
       await axios.patch(
-        `http://localhost:3000/api/auth/update/project/${id}`,
+        `${baseURL}/api/auth/update/project/${id}`,
         projectDetails,
         {
           headers: { Authorization: `Bearer ${token}` },

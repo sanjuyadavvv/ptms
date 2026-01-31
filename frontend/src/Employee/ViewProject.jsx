@@ -15,7 +15,7 @@ const ViewProject = () => {
     const fetchProject = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/auth/viewproject/${id}`,
+          `${baseURL}/api/auth/viewproject/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

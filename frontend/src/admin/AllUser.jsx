@@ -7,6 +7,7 @@ const AllUser = () => {
   const [allUsers, setAllUsers] = useState([]);
   const navigate=useNavigate()
 
+const baseURL = import.meta.env.VITE_API_URL;
 
 
 
@@ -19,7 +20,7 @@ if (!isConfirmed) {
   return; // No dabaya → yahin se function stop
 }
   try {
-    const res=await axios.delete(`http://localhost:3000/api/auth/deleteuser/${id}`,{
+    const res=await axios.delete(`${baseURL}/api/auth/deleteuser/${id}`,{
   headers:{
     Authorization:`Bearer ${localStorage.getItem("token")}`
   }
@@ -42,7 +43,7 @@ toast.success('user deleted ')
         // const token = localStorage.getItem("token");
 
         const res = await axios.get(
-          "http://localhost:3000/api/auth/getusers"
+          `${baseURL}/api/auth/getusers`
           ,  
           {headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

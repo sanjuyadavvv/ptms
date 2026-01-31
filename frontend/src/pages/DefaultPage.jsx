@@ -19,8 +19,8 @@ const DefaultPage = () => {
     const fetchData = async () => {
       try {
         const [projectRes, taskRes] = await Promise.all([
-          axios.get("http://localhost:3000/api/auth/project/user", { headers }),
-          axios.get("http://localhost:3000/api/auth/task/user", { headers }),
+          axios.get(`${baseURL}/api/auth/project/user`, { headers }),
+          axios.get(`${baseURL}/api/auth/task/user`, { headers }),
         ]);
 
         setProjects(projectRes.data.project || []);

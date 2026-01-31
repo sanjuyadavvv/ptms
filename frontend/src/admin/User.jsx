@@ -24,7 +24,7 @@
 
 //     try {
 //       const res = await axios.post(
-//         "http://localhost:3000/api/auth/createuser",
+//         "${baseURL}/api/auth/createuser",
 //         form
 //       );
 
@@ -105,7 +105,7 @@
 //   useEffect(() => {
 //     const fetchRoles = async () => {
 //       try {
-//         const res = await axios.get("http://localhost:3000/api/auth/getrole");
+//         const res = await axios.get("${baseURL}/api/auth/getrole");
 //         console.log(res)
 
 //         setRoles(res.data.roles.map((r) => r.name)); // assuming Role model has name
@@ -131,7 +131,7 @@
 
 //     try {
 //       const res = await axios.post(
-//         "http://localhost:3000/api/auth/createuser",
+//         "${baseURL}/api/auth/createuser",
 //         form
 //       );
 
@@ -224,7 +224,7 @@ const User = () => {
   useEffect(() => {
     const fetchRoles = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/getrole", {
+        const res = await axios.get(`${baseURL}/api/auth/getrole`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -260,7 +260,7 @@ const User = () => {
     try {
       // 1️⃣ Create user first
       const res = await axios.post(
-        "http://localhost:3000/api/auth/createuser",
+        `${baseURL}/api/auth/createuser`,
         { ...form },
         {
           headers: {
@@ -274,7 +274,7 @@ const User = () => {
       // 2️⃣ Assign all selected permissions in one API call
       if (selectedPermissions.length > 0) {
         await axios.post(
-          `http://localhost:3000/api/auth/addpermissions/${userId}`,
+          `${baseURL}/api/auth/addpermissions/${userId}`,
           { permissions: selectedPermissions },
           {
             headers: {

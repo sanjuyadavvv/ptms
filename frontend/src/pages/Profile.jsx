@@ -10,7 +10,7 @@ const Profile = () => {
   useEffect(()=>{
     const getPermission = async () => {
     try {
-         const res=await axios.get("http://localhost:3000/api/auth/userpermissions", {
+         const res=await axios.get(`${baseURL}/api/auth/userpermissions`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`, // include token if needed
         },

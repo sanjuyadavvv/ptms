@@ -39,7 +39,7 @@ const ManagerProject = () => {
   const handleCreateProject = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/project/createproject", // correct URL
+        `${baseURL}/api/auth/project/createproject`, // correct URL
         projectDetails,
         {
           headers: {
@@ -60,7 +60,7 @@ const ManagerProject = () => {
     const fetchManagers = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/auth/allusers", // backend wala route
+          `${baseURL}/api/auth/allusers`, // backend wala route
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

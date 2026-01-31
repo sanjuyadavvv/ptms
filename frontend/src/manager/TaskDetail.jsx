@@ -21,7 +21,7 @@ const TaskDetail = () => {
     const fetchTask = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/auth/task/${taskId}`,
+          `${baseURL}/api/auth/task/${taskId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setTask(res.data.task);
@@ -41,7 +41,7 @@ const TaskDetail = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/emp", {
+        const res = await axios.get(`${baseURL}/api/auth/emp`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setEmployees(res.data.employees || []);
@@ -56,7 +56,7 @@ const TaskDetail = () => {
   const handleStatusChange = async () => {
     try {
       const res = await axios.patch(
-        `http://localhost:3000/api/auth/task/status/${taskId}`,
+        `${baseURL}/api/auth/task/status/${taskId}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -72,7 +72,7 @@ const TaskDetail = () => {
   const handleReassign = async () => {
     try {
       const res = await axios.patch(
-        `http://localhost:3000/api/auth/task/reassign/${taskId}`,
+        `${baseURL}/api/auth/task/reassign/${taskId}`,
         { assigned_user: assignedUser },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -89,7 +89,7 @@ const TaskDetail = () => {
     if (!comment.trim()) return;
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/auth/task/addcomment/${taskId}`,
+        `${baseURL}/api/auth/task/addcomment/${taskId}`,
         { comment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
