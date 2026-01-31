@@ -5,6 +5,8 @@ const CreatePermission = () => {
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim()) return;

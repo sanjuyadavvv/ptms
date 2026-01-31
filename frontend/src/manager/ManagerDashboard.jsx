@@ -11,6 +11,9 @@ const ManagerDashboard = () => {
 
   const headers = { Authorization: `Bearer ${token}` };
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [tasks, setTasks] = useState([]);

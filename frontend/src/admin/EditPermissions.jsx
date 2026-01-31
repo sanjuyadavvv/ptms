@@ -13,6 +13,9 @@ const EditPermissions = () => {
   const [actionPerm, setActionPerm] = useState(null);
 
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
 
   // const[rolePerms,setRolePerms]=useState([])
 

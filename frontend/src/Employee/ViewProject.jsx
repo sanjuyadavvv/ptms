@@ -9,6 +9,7 @@ const ViewProject = () => {
   const [project, setProject] = useState(null);
 
 
+const baseURL = import.meta.env.VITE_API_URL;
 
 
   useEffect(() => {

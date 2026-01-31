@@ -209,6 +209,11 @@ const UpdateProjectManager = () => {
   const [loading, setLoading] = useState(true);
   const [managers, setManagers] = useState([]);
 
+
+
+  const baseURL = import.meta.env.VITE_API_URL;
+
+  
   const [projectDetails, setProjectDetails] = useState({
     name: "",
     description: "",

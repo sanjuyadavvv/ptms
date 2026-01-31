@@ -6,6 +6,10 @@ const CreateRole = () => {
   const [allPerms, setAllPerms] = useState([]);
   const [selectedPerms, setSelectedPerms] = useState([]);
 
+
+
+  const baseURL = import.meta.env.VITE_API_URL;
+
   // fetch permissions
   useEffect(() => {
     const fetchPermissions = async () => {

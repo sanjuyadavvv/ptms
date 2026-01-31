@@ -11,6 +11,11 @@ const DefaultPage = () => {
 
   const navigate = useNavigate();
 
+
+
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   const headers = {
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   };

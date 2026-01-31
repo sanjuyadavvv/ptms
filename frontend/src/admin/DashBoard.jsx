@@ -7,6 +7,9 @@ const DashBoard = () => {
   console.log('i m in admin page ')
   // const [allUsers, setAllUsers] = useState([]);
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   const handleCreateUser = () => {
     navigate('/admin/users');
   };

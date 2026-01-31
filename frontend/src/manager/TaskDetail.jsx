@@ -9,6 +9,9 @@ const TaskDetail = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   const [task, setTask] = useState(null);
   const [status, setStatus] = useState("");
   const [assignedUser, setAssignedUser] = useState("");

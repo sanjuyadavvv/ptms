@@ -201,7 +201,11 @@ const User = () => {
     email: "",
     role: "",
     is_active: "ACTIVATE",
+
   });
+
+
+  const baseURL = import.meta.env.VITE_API_URL;
 
   const [roles, setRoles] = useState([]);
   const [selectedPermissions, setSelectedPermissions] = useState([]);

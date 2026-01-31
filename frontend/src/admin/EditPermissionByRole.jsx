@@ -11,6 +11,10 @@ import axios from "axios";
 const EditPermissionByRole = () => {
   const { id } = useParams();
 
+
+const baseURL = import.meta.env.VITE_API_URL;
+
+
   console.log(id)
   const { user } = useSelector((state) => state.auth);
 

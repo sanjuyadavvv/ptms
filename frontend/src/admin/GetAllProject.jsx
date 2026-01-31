@@ -10,6 +10,9 @@ const [projects, setProjects] = useState([]);
 
   const navigate=useNavigate();
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   const token = localStorage.getItem("token");
 
   /* ================= FETCH PROJECTS ================= */

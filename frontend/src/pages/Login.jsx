@@ -148,6 +148,9 @@ const Login = () => {
 
   const adminPassword = "SECRET"; // admin secret
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   // Fetch roles from backend
   useEffect(() => {
     const fetchRoles = async () => {

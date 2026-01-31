@@ -9,6 +9,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 // Fetch projects assigned to manager
 export const fetchManagerProjects = createAsyncThunk(
   "manager/fetchManagerProjects",

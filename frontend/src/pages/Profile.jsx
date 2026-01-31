@@ -7,6 +7,9 @@ const Profile = () => {
 
   const[permission,setPermission]=useState([]);
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   useEffect(()=>{
     const getPermission = async () => {
     try {

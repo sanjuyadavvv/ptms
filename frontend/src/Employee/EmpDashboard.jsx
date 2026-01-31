@@ -297,6 +297,9 @@ const EmpDashboard = () => {
   const [permissions, setPermissions] = useState([]);
   const [comment, setComment] = useState("");
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   const token = localStorage.getItem("token");
   const headers = { Authorization: `Bearer ${token}` };
 

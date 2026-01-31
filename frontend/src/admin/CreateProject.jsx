@@ -13,6 +13,10 @@ const FormRow = ({ label, children }) => (
 const CreateProject = () => {
   const [managers, setManagers] = useState([]);
 
+const baseURL = import.meta.env.VITE_API_URL;
+
+
+
   const [projectDetails, setProjectDetails] = useState({
     name: "",
     description: "",

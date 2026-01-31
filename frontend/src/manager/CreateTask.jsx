@@ -162,6 +162,8 @@ const CreateTasks = ({projectId}) => {
   const [tasks, setTasks] = useState([ { ...defaultTask } ]);
   const [loading, setLoading] = useState(false);
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
   // Handle field change for a task
   const handleChange = (index, e) => {
     const newTasks = [...tasks];
