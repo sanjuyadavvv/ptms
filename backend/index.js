@@ -32,16 +32,28 @@ app.use((req, res, next) => {
 
 
 
+const allowedOrigins = [
+  'http://localhost:5173',        // local dev
+  'https://ptms-bxri.vercel.app' // deployed frontend
+];
+
 app.use(
   cors({
-    origin:'http://localhost:5173',
-    credentials:true,
-      methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+    origin: function (origin, callback) {
+      // allow requests with no origin like Postman or curl
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
-)
-
-
+);
 
 
 const Port=process.env.PORT
