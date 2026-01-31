@@ -155,6 +155,7 @@ const Login = () => {
         const res = await axios.get(`${baseURL}/api/auth/getrole`);
         setRoles(res.data.roles || []); // expecting { roles: [...] }
       } catch (err) {
+        console.log(err)
         toast.error("Failed to fetch roles,check your internet connection");
       }
     };
